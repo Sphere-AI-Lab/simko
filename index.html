@@ -165,7 +165,7 @@
         <br>
         <img src="static/images/teaser.png" alt="algebraic reasoning" class="center" style="width:95%;height:auto;">
         <br>
-        <figcaption style="text-align:left;">SimKO improves pass@K performance on math tasks (AIME24/25, AMC, MATH500, Minerva, Olympiadbench) and logic tasks (Synlogic, BBH) compared to GRPO, as shown in the plots (left and middle). The figure on the right shows the k-th highest candidate probabilities averaged over the dataset. The SimKO-trained model exhibits a less concentrated probability distribution compared to GRPO.</figcaption>
+        <figcaption style="text-align:left;">Figure1: SimKO improves pass@K performance on math tasks (AIME24/25, AMC, MATH500, Minerva, Olympiadbench) and logic tasks (Synlogic, BBH) compared to GRPO, as shown in the plots (left and middle). The Figure1 on the right shows the k-th highest candidate probabilities averaged over the dataset. The SimKO-trained model exhibits a less concentrated probability distribution compared to GRPO.</figcaption>
         <br>
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
@@ -208,23 +208,23 @@
           <div class="column is-four-fifths">
             <h2 class="title is-3">Intuition of Over-Concentrated Distribution</h2>
             <div class="content has-text-justified">
-              <p>Here is an illustrative example where the model generates the \( l \)-th token given the context \( s_{i,l} = (x_i, y_{&lt;l}) \). In Figure (a), two valid reasoning paths begin with \( y_{l}^{(1)} \) and \( y_{l}^{(2)} \), where \( y_{l}^{(k)} \) represents the rank-\( k \) candidate under the probability distribution \( \pi_\theta(\cdot \mid s_{i,l}) \). A model with strong exploration capabilities will distribute its probability more evenly between \( \pi_\theta(y_{l}^{(1)} \mid s_{i,l}) \) and \( \pi_\theta(y_{l}^{(2)} \mid s_{i,l}) \), as demonstrated in the upper panel of Figure (b).
-In contrast, when exploration is poor, the model tends to over-concentrate its probability mass on a single path. Figure (c) further highlights that entropy alone is insufficient to capture the model's exploration dynamics. Even when entropy is the same, the model may be in a better exploration state in some cases, which is illustrated by the more uniform distribution in the "Good exploration" scenario compared to the "Bad exploration" scenario. This suggests that a more nuanced metric than entropy is needed to evaluate exploration quality.</p>
+              <p>Here is an illustrative example where the model generates the \( l \)-th token given the context \( s_{i,l} = (x_i, y_{&lt;l}) \). In Figure2 (a), two valid reasoning paths begin with \( y_{l}^{(1)} \) and \( y_{l}^{(2)} \), where \( y_{l}^{(k)} \) represents the rank-\( k \) candidate under the probability distribution \( \pi_\theta(\cdot \mid s_{i,l}) \). A model with strong exploration capabilities will distribute its probability more evenly between \( \pi_\theta(y_{l}^{(1)} \mid s_{i,l}) \) and \( \pi_\theta(y_{l}^{(2)} \mid s_{i,l}) \), as demonstrated in the upper panel of Figure2 (b).
+In contrast, when exploration is poor, the model tends to over-concentrate its probability mass on a single path. Figure2 (c) further highlights that entropy alone is insufficient to capture the model's exploration dynamics. Even when entropy is the same, the model may be in a better exploration state in some cases, which is illustrated by the more uniform distribution in the "Good exploration" scenario compared to the "Bad exploration" scenario. This suggests that a more nuanced metric than entropy is needed to evaluate exploration quality.</p>
               
               <br>
               <img src="static/images/theme.png" alt="algebraic reasoning" class="center" style="width:95%;height:auto;">
               <br>
-              <figcaption style="text-align:left;">(a) The exploration behavior visualized according to the token-level posterior probability. (b) Com-
+              <figcaption style="text-align:left;">Figure2: (a) The exploration behavior visualized according to the token-level posterior probability. (b) Com-
                 parison of two exploration strategy. (c) An example of two distributions with identical entropy but distinct
                 probability distribution.</figcaption>
               <br>
               <p>We introduce a new metric, \( \Lambda^{(k)} \), to monitor the token probability distribution within the top-K candidates. We also conduct ablation studies with Positive Sample Reinforce (PSR) and Negative Sample Reinforce (NSR) strategies to understand the impact of gradient manipulations.
-                As shown in the figures, GRPO training results in a heavy concentration of probability mass on a single candidate. This effect is further exacerbated by PSR, while NSR helps mitigate it to some extent. Crucially, the data (Figures a-d) reveal an inverse relationship between the concentration of probability mass and pass@K performance: as the concentration increases, pass@K accuracy decreases. This observation underscores that excessive exploitation limits the exploration of alternative reasoning paths.
+                As shown in the Figure3 (a), GRPO training results in a heavy concentration of probability mass on a single candidate. This effect is further exacerbated by PSR, while NSR helps mitigate it to some extent. Crucially, the data (Figure3 (a)-(d)) reveal an inverse relationship between the concentration of probability mass and pass@K performance: as the concentration increases, pass@K accuracy decreases. This observation underscores that excessive exploitation limits the exploration of alternative reasoning paths.
                 Based on these insights, we design an algorithmic approach that encourages a more balanced exploration of reasoning paths, improving performance.</p>
               <br>
               <img src="static/images/learning_dynamic.png" alt="algebraic reasoning" class="center" style="width:95%;height:auto;">
               <br>
-              <figcaption style="text-align:left;">(a)-(c) Training dynamics of average log probability \(\Lambda\) and top-K probabilities \(\Lambda^{(k)}\) derived by GRPO, NSR, and PSR. (d) The corresponding pass@1 and pass@K results of the RLVL-trained models. </figcaption>
+              <figcaption style="text-align:left;">Figure3: (a)-(c) Training dynamics of average log probability \(\Lambda\) and top-K probabilities \(\Lambda^{(k)}\) derived by GRPO, NSR, and PSR. (d) The corresponding pass@1 and pass@K results of the RLVL-trained models. </figcaption>
               <br>
             </div>
   </section>
@@ -263,7 +263,7 @@ In contrast, when exploration is poor, the model tends to over-concentrate its p
           <br>
           <img src="static/images/method.png" alt="algebraic reasoning" class="center" style="width:95%;height:auto;">
           <br>
-          <figcaption style="text-align:center;">Intuition of the proposed method. </figcaption>
+          <figcaption style="text-align:center;">Figure4: Intuition of the proposed method. </figcaption>
           <br>
         </div>
         <h2 class="title is-3">Identifying Informative Tokens to Optimize</h2>
@@ -335,13 +335,13 @@ In contrast, when exploration is poor, the model tends to over-concentrate its p
               <br>
               <img src="static/images/result_math.png" alt="algebraic reasoning" class="center" style="width:95%;height:auto;">
               <br>
-              <figcaption style="text-align:left;">Average pass@256 results for Qwen2.5-Math-7B, Qwen2.5-7B, and Llama3.2-3B-Instruct on
+              <figcaption style="text-align:left;">Table1: Average pass@256 results for Qwen2.5-Math-7B, Qwen2.5-7B, and Llama3.2-3B-Instruct on
                 MATH500, AIME 2024/25, Minerva math, Olympiadbench, and AMC23 Datasets.</figcaption>
               <br>
          
               <img src="static/images/result_logic.png" alt="algebraic reasoning" class="center" style="width:95%;height:auto;">
               <br>
-              <figcaption style="text-align:center;">Pass@K results for Qwen2.5-7B on Synlogic and BBH Datasets.</figcaption>
+              <figcaption style="text-align:center;">Table2: Pass@K results for Qwen2.5-7B on Synlogic and BBH Datasets.</figcaption>
               <br>
             </div>
   </section>
@@ -359,15 +359,7 @@ In contrast, when exploration is poor, the model tends to over-concentrate its p
   <div class="container is-max-desktop content">
     <h2 class="title is-3 has-text-centered">BibTeX</h2>
     <pre><code>
-      @misc{yu2025formalmathbenchmarkingformalmathematical,
-        title={FormalMATH: Benchmarking Formal Mathematical Reasoning of Large Language Models}, 
-        author={Zhouliang Yu and Ruotian Peng and Keyi Ding and Yizhe Li and Zhongyuan Peng and Minghao Liu and Yifan Zhang and Zheng Yuan and Huajian Xin and Wenhao Huang and Yandong Wen and Ge Zhang and Weiyang Liu},
-        year={2025},
-        eprint={2505.02735},
-        archivePrefix={arXiv},
-        primaryClass={cs.AI},
-        url={https://arxiv.org/abs/2505.02735}, 
-      }
+
 
 </code></pre>
   </div>
